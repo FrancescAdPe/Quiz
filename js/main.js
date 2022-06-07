@@ -1,10 +1,10 @@
 const NUM_QUESTIONS = 10;
 const DIFFICULTY = 'easy';
 const CATEGORY = '';
-const TIME_DELAY = 500;
+const TIME_DELAY = 1000;
+let score = 0;
 
 const contentAnswers = [...document.querySelectorAll('.answer')];
-let score = 0;
 
 document.getElementById('btnStart').addEventListener('click', startQuiz);
 document.getElementById('btnGoHomepage').addEventListener('click', () => window.location.reload());
@@ -36,10 +36,11 @@ function nextQuestion(arrQuestions) {
 
 function treatAnswer(e, arrQuestions) {
   const elemClickedAnswer = e.target;
-  const elemCorrectAnswer = document.getElementById('correctAnswer');
+
   // Las respuestas vienen con caracteres especiales y es la forma de asegurarse que se convierten en los simbolos que representan para poder comprobar si la respuesta es correcta
   // Ejemplo de caracteres: &quot; => ("") &amp; => (&) &#039; => (') &Uuml; => (Ü)
-  elemCorrectAnswer.innerHTML = arrQuestions[0].correct_answer;
+  const elemCorrectAnswer = document.getElementById('correctAnswer');
+  elemCorrectAnswer.innerHTML = arrQuestions[0].correct_answer.trim();
   const strCorrectAnswer = elemCorrectAnswer.innerHTML;
 
   colourAnswers(elemClickedAnswer, strCorrectAnswer);
@@ -161,6 +162,5 @@ function createChart() {
         }
       }
     });
-  } else {
   }
 }

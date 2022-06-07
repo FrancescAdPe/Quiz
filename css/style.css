@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-
 :root {
   --main-light-color: hsla(201, 94%, 90%);
   --main-dark-color: hsla(201, 94%, 40%);
@@ -56,7 +55,7 @@
 }
 
 .answers {
-  width: 100%;
+  width: 90%;
 }
 
 .answer {
@@ -68,7 +67,6 @@
   border-radius: 10px;
   color: #fff;
 }
-
 
 #correctAnswer {
   display: none;
